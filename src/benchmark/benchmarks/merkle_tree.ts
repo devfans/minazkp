@@ -44,7 +44,7 @@ const bmMerkleKV = benchmark(
       const { proof } = await MerkleLeaf.prove(leaf, witness);
       toc();
       tic('verify proof');
-      await MerkleLeaf.verify([leaf], verificationKey, proof);
+      console.log(await MerkleLeaf.verify(proof));
       toc();
     },
     // two warmups to ensure full caching
