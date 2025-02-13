@@ -5,7 +5,7 @@
 import {
   MerkleLeaf,
 } from '../../merkle_tree.js';
-import { benchmark, start } from '../benchmark.js';
+import { benchmark, run } from '../benchmark.js';
 
 
 const randomLeaf = (count: number) => {
