@@ -3,9 +3,13 @@
  */
 
 import jStat from 'jstat';
-export {
+
+export type {
   Benchmark,
   BenchmarkResult,
+}
+
+export {
   benchmark,
   calculateBounds,
   logResult,
@@ -13,7 +17,7 @@ export {
   run,
 };
 
-export type BenchmarkResult = {
+type BenchmarkResult = {
   label: string;
   size: number;
   mean: number;
