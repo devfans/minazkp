@@ -22,7 +22,7 @@ import {
   } from 'o1js';
 
 
-
+/*
 class RecursiveProver<PUB, PROOF> {
     static proveWithZKP(
     ) {
@@ -43,3 +43,4 @@ class RecursiveProver<PUB, PROOF> {
         });
     }
 }
+    */

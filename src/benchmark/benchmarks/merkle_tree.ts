@@ -2,24 +2,18 @@
  * MerkleKV benchmark
  */
 
-import { Provable } from 'o1js';
 import {
-  Bytes32,
-  Ecdsa,
-  Secp256k1,
-  MerkleKV,
-} from '../build/src/merkle_tree.js';
-import { benchmark } from '../benchmark.js';
+  MerkleLeaf,
+} from '../../merkle_tree.js';
+import { benchmark, start } from '../benchmark.js';
 
 
-const randomLeaf = (count) => {
-    map
+const randomLeaf = (count: number) => {
     Array(count).fill(0).map(() => {
-
     })
 }
 
-const MerkleKV = benchmark(
+const bmMerkleKV = benchmark(
     'merklekv',
     async (tic, toc) => {
       tic('build constraint system');
@@ -31,3 +25,4 @@ const MerkleKV = benchmark(
     { numberOfWarmups: 2, numberOfRuns: 5 }
   );
   
+await start(bmMerkleKV);

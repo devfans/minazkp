@@ -174,3 +174,13 @@ function calculateBounds(result: BenchmarkResult) {
   const lowerBound = result.mean - stdDev;
   return { upperBound, lowerBound };
 }
+
+export async function start(
+  bm: Benchmark
+): Promise<void> {
+  const results = [...(await bm.run())];
+  for (const result of results) {
+    logResult(result);
+    console.log('\n');
+  }
+}

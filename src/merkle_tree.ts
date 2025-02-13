@@ -37,7 +37,7 @@ import {
     }
   }
 
-  const MerkleLeaf = ZkProgram({
+  export const MerkleLeaf = ZkProgram({
     name: 'merkle-leaf',
     publicInput: MerkleKV,
 
