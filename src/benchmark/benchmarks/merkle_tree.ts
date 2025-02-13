@@ -25,4 +25,4 @@ const bmMerkleKV = benchmark(
     { numberOfWarmups: 2, numberOfRuns: 5 }
   );
   
-await start(bmMerkleKV);
+await run(bmMerkleKV);

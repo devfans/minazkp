@@ -10,9 +10,10 @@ export {
   calculateBounds,
   logResult,
   pValue,
+  run,
 };
 
-type BenchmarkResult = {
+export type BenchmarkResult = {
   label: string;
   size: number;
   mean: number;
@@ -175,7 +176,7 @@ function calculateBounds(result: BenchmarkResult) {
   return { upperBound, lowerBound };
 }
 
-export async function start(
+async function run(
   bm: Benchmark
 ): Promise<void> {
   const results = [...(await bm.run())];
