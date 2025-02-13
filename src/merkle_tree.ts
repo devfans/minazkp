@@ -21,7 +21,7 @@ import {
     Bytes,
   } from 'o1js';
 
-  class MerkleKV extends Struct({
+  export class MerkleKV extends Struct({
     root: Field,
     key: Field,
     value: Field,
