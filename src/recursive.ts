@@ -45,7 +45,7 @@ export function asRecursive<
                 privateInputs: [SelfProof],
                 async method(
                     publicInput: PublicInput,
-                    proof: SelfProof<PublicInput, PublicOutput>,
+                    proof: SelfProof<PublicInputType, PublicOutputType>,
                 ) {
                     // Verify the proof
                     proof.verify();
