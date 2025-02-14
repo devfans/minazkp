@@ -42,7 +42,7 @@ export function asRecursive<
         publicInput: program.publicInputType,
         methods: {
             prove: {
-                privateInputs: [SelfProof<PublicInput, PublicOutput>],
+                privateInputs: [SelfProof],
                 async method(
                     publicInput: PublicInput,
                     proof: SelfProof<PublicInput, PublicOutput>,
