@@ -6,6 +6,7 @@ import {
     MerkleWitness,
     MerkleMapWitness,
     verify,
+    FlexibleProvablePure,
     SmartContract,
     state,
     State,
@@ -22,17 +23,20 @@ import {
   } from 'o1js';
 
 
-export function asRecursive<PUBI, PUBO>(name: string) {
+export function asRecursive<
+    PublicInputType extends FlexibleProvablePure<any>,
+    PublicOutputType extends FlexibleProvablePure<any>
+    >(name: string) {
     return ZkProgram({
         name: name,
-        publicInput: PUBI,
-        
+        publicInput: PublicInputType,
+
         methods: {
             prove: {
-                privateInputs: [Proof<PUBI, PUBO>],
+                privateInputs: [Proof<PublicInputType, PublicOutputType>],
                 async method(
-                    publicInput: PUBI,
-                    proof: Proof<PUBI, PUBO>,
+                    publicInput: PublicInputType,
+                    proof: Proof<PublicInputType, PublicOutputType>,
                 ) {
                     // Verify the proof
                     proof.verify();
