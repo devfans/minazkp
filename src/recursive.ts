@@ -24,6 +24,7 @@ import {
   } from 'o1js';
 
 
+  /*
 export function asRecursive<
     PublicInputType extends FlexibleProvablePure<any>,
     PublicOutputType extends FlexibleProvablePure<any>
@@ -57,3 +58,4 @@ export function asRecursive<
         }
     });
 }
+    */

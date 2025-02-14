@@ -51,8 +51,24 @@ import {
             ) {
                 MerkleKV.validate(leaf, witness);
             }
+        },
+
+        recursive: {
+            privateInputs: [SelfProof],
+
+            async method(
+                leaf: MerkleKV,
+                proof: SelfProof<MerkleKV, void>,
+            ) {
+                // Verify the proof
+                proof.verify();
+
+                // Assert that the proof's public input matches the provided public input
+                proof.publicInput.assertEquals(leaf);
+            }
         }
     }
+
   });
 
 
