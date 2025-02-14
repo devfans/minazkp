@@ -18,6 +18,7 @@ import {
     Crypto,
     createEcdsa,
     createForeignCurve,
+    InferProvable,
     Bool,
     Bytes,
   } from 'o1js';
@@ -33,16 +34,18 @@ export function asRecursive<
             publicOutputType: PublicOutputType;
           }
     ) {
+        type PublicInput = InferProvable<PublicInputType>;
+        type PublicOutput = InferProvable<PublicOutputType>;
     return ZkProgram({
         name: name,
         publicInput: program.publicInputType,
 
         methods: {
             prove: {
-                privateInputs: [Proof<PublicInputType, PublicOutputType>],
+                privateInputs: [Proof<PublicInput, PublicOutput>],
                 async method(
-                    publicInput: PublicInputType,
-                    proof: Proof<PublicInputType, PublicOutputType>,
+                    publicInput: PublicInput,
+                    proof: Proof<PublicInput, PublicOutput>,
                 ) {
                     // Verify the proof
                     proof.verify();
