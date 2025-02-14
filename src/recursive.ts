@@ -39,10 +39,9 @@ export function asRecursive<
     return ZkProgram({
         name: name,
         publicInput: program.publicInputType,
-
         methods: {
             prove: {
-                privateInputs: [Proof<PublicInput, PublicOutput>],
+                privateInputs: [ZkProgram.Proof(program)],
                 async method(
                     publicInput: PublicInput,
                     proof: Proof<PublicInput, PublicOutput>,
