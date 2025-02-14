@@ -22,25 +22,23 @@ import {
   } from 'o1js';
 
 
-/*
-class RecursiveProver<PUB, PROOF> {
-    static proveWithZKP(
-    ) {
-        return ZkProgram({            
-            methods: {
-                prove: {
-                    privateInputs: [PROOF],
+export function asRecursive<PUBI, PUBO>(name: string) {
+    return ZkProgram({
+        publicInput: PUBI,
+        methods: {
+            prove: {
+                privateInputs: [Proof<PUBI, PUBO>],
+                async method(
+                    publicInput: PUBI,
+                    proof: Proof<PUBI, PUBO>,
+                ) {
+                    // Verify the proof
+                    proof.verify();
 
-                    async method(
-                        publicInput: PUB,
-                        proof: PROOF,
-                    ) {
-                        proof.verify();
-                        proof.publicInput.assertEquals(publicInput);
-                    }
+                    // Assert that the proof's public input matches the provided public input
+                    proof.publicInput.assertEquals(publicInput);
                 }
             }
-        });
-    }
+        }
+    });
 }
-    */

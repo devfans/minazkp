@@ -7,6 +7,9 @@ import { Field, Provable, Poseidon, MerkleMap } from 'o1js';
 import {
   MerkleLeaf, MerkleKV,
 } from '../../merkle_tree.js';
+import {
+  asRecursive,
+} from '../../recursive.js';
 import { benchmark, run } from '../benchmark.js';
 
 
@@ -46,9 +49,19 @@ const bmMerkleKV = benchmark(
       tic('verify proof');
       console.log(await MerkleLeaf.verify(proof));
       toc();
+      const recursive = asRecursive<MerkleKV, void>('recursive_merkle_tree');
+      tic('build the recursive program');
+      const {verificationKeyRecursive} = await recursive.compile();
+      toc();
+      tic('prove merkle leaf as recursive');
+      const { proofRecursive } = await recursive.prove(leaf, proof);
+      toc();
+      tic('verify proof as recursive');
+      console.log(await recursive.verify(proofRecursive));
+      toc();
     },
     // two warmups to ensure full caching
-    { numberOfWarmups: 2, numberOfRuns: 5 }
+    { numberOfWarmups: 1, numberOfRuns: 5 }
   );
   
 await run(bmMerkleKV);
