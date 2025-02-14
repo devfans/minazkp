@@ -49,7 +49,7 @@ const bmMerkleKV = benchmark(
       toc();
     
       tic('prove merkle leaf as recursive');
-      const { proof: proofRecursive } = await recursive.recursive(leaf, proof);
+      const { proof: proofRecursive } = await MerkleLeaf.recursive(leaf, proof);
       toc();
       tic('verify proof as recursive');
       console.log(await MerkleLeaf.verify(proofRecursive));

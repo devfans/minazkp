@@ -64,7 +64,7 @@ import {
                 proof.verify();
 
                 // Assert that the proof's public input matches the provided public input
-                proof.publicInput.assertEquals(leaf);
+                MerkleKV.assertEquals(proof.publicInput, leaf);
             }
         }
     }
