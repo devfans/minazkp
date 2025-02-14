@@ -2,23 +2,8 @@ import {
     Field,
     SelfProof,
     Struct,
-    MerkleMap,
-    MerkleWitness,
     MerkleMapWitness,
-    verify,
-    SmartContract,
-    state,
-    State,
-    method,
-    DeployArgs,
-    Proof,
-    Permissions,
     ZkProgram,
-    Crypto,
-    createEcdsa,
-    createForeignCurve,
-    Bool,
-    Bytes,
   } from 'o1js';
 
   export class MerkleKV extends Struct({

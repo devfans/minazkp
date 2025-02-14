@@ -1,7 +1,7 @@
 /**
  * MerkleKV benchmark
  */
-import { Field, Provable, Poseidon, MerkleMap } from 'o1js';
+import { Field, MerkleMap } from 'o1js';
 
 
 import {
