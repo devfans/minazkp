@@ -26,10 +26,16 @@ import {
 export function asRecursive<
     PublicInputType extends FlexibleProvablePure<any>,
     PublicOutputType extends FlexibleProvablePure<any>
-    >(name: string) {
+    >(name: string,
+        program: {
+            name: string;
+            publicInputType: PublicInputType;
+            publicOutputType: PublicOutputType;
+          }
+    ) {
     return ZkProgram({
         name: name,
-        publicInput: PublicInputType,
+        publicInput: program.publicInputType,
 
         methods: {
             prove: {
