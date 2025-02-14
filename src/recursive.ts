@@ -36,12 +36,14 @@ export function asRecursive<
     ) {
         type PublicInput = InferProvable<PublicInputType>;
         type PublicOutput = InferProvable<PublicOutputType>;
+        class ZKProof extends ZkProgram.Proof(program) {}
+
     return ZkProgram({
         name: name,
         publicInput: program.publicInputType,
         methods: {
             prove: {
-                privateInputs: [ZkProgram.Proof(program)],
+                privateInputs: [ZKProof],
                 async method(
                     publicInput: PublicInput,
                     proof: Proof<PublicInput, PublicOutput>,
