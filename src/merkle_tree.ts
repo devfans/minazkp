@@ -35,6 +35,12 @@ import {
         witnessRoot.assertEquals(leaf.root);
         witnessKey.assertEquals(leaf.key);
     }
+
+    static assertEquals(kv1: MerkleKV, kv2: MerkleKV) {
+      kv1.root.assertEquals(kv2.root);
+      kv1.key.assertEquals(kv2.key);
+      kv1.value.assertEquals(kv2.value);
+    }
   }
 
   export const MerkleLeaf = ZkProgram({
