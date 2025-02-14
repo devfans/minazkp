@@ -51,7 +51,7 @@ const bmMerkleKV = benchmark(
       toc();
       const recursive = asRecursive<MerkleKV, void>('recursive_merkle_tree');
       tic('build the recursive program');
-      const {verificationKeyRecursive} = await recursive.compile();
+      const {verificationKey: verificationKeyRecursive} = await recursive.compile();
       toc();
       tic('prove merkle leaf as recursive');
       const { proof: proofRecursive } = await recursive.prove(leaf, proof);
