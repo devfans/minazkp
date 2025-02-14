@@ -24,7 +24,9 @@ import {
 
 export function asRecursive<PUBI, PUBO>(name: string) {
     return ZkProgram({
+        name: name,
         publicInput: PUBI,
+        
         methods: {
             prove: {
                 privateInputs: [Proof<PUBI, PUBO>],
